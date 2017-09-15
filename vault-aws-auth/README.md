@@ -10,7 +10,7 @@
 	```
 
 - Create authorized_keys secret backend and populate with the list of ssh public (PIV) keys 
-  (tested with 10 keys tested with 50 keys, unsure of data limit per secret)
+  (tested with 50 keys, unsure of data limit per secret)
 	> vault write secret/authorized_keys/<username> \
 	> user_name=.ssh-rsa AAAA.... \
 	> user_name2=.ssh-rsa AAAA.... \
