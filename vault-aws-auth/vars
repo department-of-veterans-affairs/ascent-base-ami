@@ -1,0 +1,7 @@
+AWS_REGION=`curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region'`
+VAULT_URL=`aws --region=$AWS_REGION elb describe-load-balancers --load-balancer-names vault-elb | jq -r '.LoadBalancerDescriptions | .[] | .DNSName'`
+NONCE=`cat /home/vaultuser/.vault/nonce`
+VAULT_TOKEN=`cat /home/vaultuser/.vault/token`
+
+
+export AWS_REGION VAULT_URL AWS_ID NONCE VAULT_TOKEN

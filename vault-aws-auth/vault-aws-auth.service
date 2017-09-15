@@ -1,0 +1,13 @@
+[Unit]
+Description=Authenticates to vault and stores token
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/vaultuser/aws_auth.sh
+User=vaultuser
+Group=vaultuser
+
+[Install]
+WantedBy=multi-user.target

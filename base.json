@@ -1,0 +1,55 @@
+{
+  "variables": {
+    "aws_access_key": null,
+    "aws_secret_key": null,
+    "aws_region": null,
+    "base_ami_id": null
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "{{user `aws_region`}}",
+      "source_ami": "{{user `base_ami_id`}}",
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ssh_pty": true,
+      "ami_name": "ascent-base-{{timestamp}}",
+      "launch_block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "volume_size": 10,
+          "volume_type": "gp2",
+          "delete_on_termination": true
+        }
+      ],
+      "tags": {
+        "Name": "vets-ascent"
+      },
+      "snapshot_tags": 
+      {
+        "Name": "vets-ascent"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "./vault-aws-auth/",
+      "destination": "/tmp"
+    },
+    {
+      "type": "shell",
+      "environment_vars": [
+        "IMAGE_TYPE={{user `image_type`}}"
+      ],
+      "scripts": [
+        "basic-packages.sh",
+        "setup_vault_auth.sh",
+        "ssh-users.sh",
+        "devops.sh"
+      ]
+    }
+  ]
+}
