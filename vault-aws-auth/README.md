@@ -18,7 +18,7 @@
 - Enable AWS Auth backend
 	> vault auth-enable aws
 
-- Add access and secret key for Vault to use to communicate with AWS API
+- Add access and secret key for Vault to use to communicate with AWS API, at a minimum vault will need access to ec2:describeInstances.
 	> vault write auth/aws/config/client secret_key=\<secret key\> access_key=\<access key data\>
 
 - Create a role for AWS ec2 login.  This example restricts authorization to ec2 instance owned by our account, and issues tokens that last for 24 hours.  Token ttl will need to match the time period set in the aws auth timer systemd unit.
