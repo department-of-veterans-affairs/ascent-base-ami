@@ -21,7 +21,7 @@
 - Add access and secret key for Vault to use to communicate with AWS API
 	> vault write auth/aws/config/client secret_key=\<secret key\> access_key=\<access key data\>
 
-- Create a role for AWS ec2 login.  This example restricts authorization to ec2 instance owned by our account, and issues tokens that last for 24 hours.  Token ttl will need to match the time period set in the aws auth script on the ec2 instance.
+- Create a role for AWS ec2 login.  This example restricts authorization to ec2 instance owned by our account, and issues tokens that last for 24 hours.  Token ttl will need to match the time period set in the aws auth timer systemd unit.
 	> ./vault write auth/aws/role/ssh-login auth_type=ec2 bound_account_id=\<our aws account id\> policies=default,authorized_keys_read ttl=24h
 
 ## On the EC2 instances
