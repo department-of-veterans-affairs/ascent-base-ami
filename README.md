@@ -1,7 +1,7 @@
 # ascent-base-ami
 
 These scripts build a base image using Hashicorp packer.  SSH access is setup via authorized keys loaded into Hashicorp Vault 
-and helper scripts, for more details see the vault_aws_auth directory. 
+via helper scripts, for more details see the vault_aws_auth directory. 
 
 A default user named "devops" is added with full sudo access.  
 
