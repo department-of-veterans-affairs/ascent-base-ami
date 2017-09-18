@@ -12,6 +12,7 @@ sudo chown root:root /tmp/vault-aws-auth*
 sudo mv /tmp/vault-aws-auth* /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable vault-aws-auth.service
+sudo systemctl enable vault-aws-auth.timer
 
 
 exit 0
