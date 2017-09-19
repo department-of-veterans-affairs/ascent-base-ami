@@ -1,7 +1,7 @@
 # ascent-base-ami
 
-These scripts build a base image using Hashicorp packer.  SSH access is setup via authorized keys loaded into Hashicorp Vault 
-via helper scripts, for more details see the vault_aws_auth directory. 
+These scripts build a base image using Hashicorp packer.  Base RHEL7, the aws cli, and the jq shell JSON parser are installed.  
+SSH access is setup via integration with authorized keys loaded into Hashicorp Vault, for more details see the vault_aws_auth directory. 
 
 A default user named "devops" is added with full sudo access.  
 
