@@ -41,9 +41,6 @@
     },
     {
       "type": "shell",
-      "environment_vars": [
-        "IMAGE_TYPE={{user `image_type`}}"
-      ],
       "scripts": [
         "basic-packages.sh",
         "setup_vault_auth.sh",
