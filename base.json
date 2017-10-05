@@ -40,13 +40,16 @@
       "destination": "/tmp"
     },
     {
+      "type": "file",
+      "source": "./vault-certificate/",
+      "destination": "/tmp"
+    },
+    {
       "type": "shell",
-      "environment_vars": [
-        "IMAGE_TYPE={{user `image_type`}}"
-      ],
       "scripts": [
         "basic-packages.sh",
         "setup_vault_auth.sh",
+        "setup_vault_certificate.sh",
         "ssh-users.sh",
         "devops.sh"
       ]

@@ -4,7 +4,7 @@ Description=Run vault-aws-auth on boot and every day
 [Timer]
 OnBootSec=0
 OnUnitActiveSec=1d
-AccuracySec=10
+AccuracySec=1us
 
 [Install]
 WantedBy=timers.target

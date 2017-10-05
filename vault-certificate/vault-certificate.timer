@@ -1,0 +1,11 @@
+[Unit]
+Description=Run vault-certificate on boot and every year
+
+[Timer]
+OnActiveSec=0
+OnUnitActiveSec=8760h
+AccuracySec=1s
+
+
+[Install]
+WantedBy=timers.target

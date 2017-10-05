@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 # base yum packages
 sudo yum -y install wget unzip deltarpm nmap curl bind-utils
