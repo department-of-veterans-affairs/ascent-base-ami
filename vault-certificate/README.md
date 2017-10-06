@@ -25,4 +25,6 @@ path "pki/issue/vets-api-dot-gov" {
 
 - Certificates are requested with a 1 year expiration at system startup and a systemd timer is set to renew 1 year after
 
-- Issuing CA cert is stored in pem format in /etc/pki/ca-trust/source/anchors RedHat system location and added to OS via update-ca-trust command
+- Returned certificates and private key are stored in /home/vaultuser/certs
+
+- Issuing CA cert is copied in pem format to /etc/pki/ca-trust/source/anchors RedHat system location and added to OS via update-ca-trust command
