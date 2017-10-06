@@ -21,7 +21,7 @@ path "pki/issue/vets-api-dot-gov" {
   - "Certificate" - if set to "true" the ec2 instance will request a certificate from Vault using its AWS internal hostname as a CN value.
     All other tag values, or the tag not being present result in no certificate request being made
   - "SAN" - comma delimited list of [subject alternative names](https://tools.ietf.org/html/rfc3280#section-4.2.1.7) to be added to the certificate.
-    This tag is optional, if present its contents must be either a single or comma delimited list of alt names to be added to the certificate.
+    This tag is optional, if present its contents must be either a single DNS name or comma delimited list of several DNS names to be added to the certificate.
 
 - Certificates are requested with a 1 year expiration at system startup and a systemd timer is set to renew 1 year after
 
