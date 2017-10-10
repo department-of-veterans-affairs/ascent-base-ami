@@ -1,4 +1,4 @@
-@Library('ascent@development') _
+@Library('ascent') _
 
 packerPipeline {
     packerFile = 'base.json'
