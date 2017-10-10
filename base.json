@@ -16,7 +16,6 @@
       "ssh_username": "ec2-user",
       "ssh_pty": true,
       "ami_name": "ascent-base-{{timestamp}}",
-      "associate_public_ip_address": true,
       "launch_block_device_mappings": [
         {
           "device_name": "/dev/sda1",
