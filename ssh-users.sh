@@ -31,14 +31,13 @@ cat > /tmp/ssh-command.sh << 'EOF'
 
 #set -x
 
-source /home/vaultuser/.vault/vars
-
 if [ "$1" == "ec2-user" ]
 then
         curl -s http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key
         exit 0
 else
 # Check vault
+source /home/vaultuser/.vault/vars
 curl -sk -H "X-Vault-Token:$VAULT_TOKEN" https://$VAULT_URL:8200/v1/secret/authorized_keys/$1 | jq -r '.data|join("\n")'
 fi
 
