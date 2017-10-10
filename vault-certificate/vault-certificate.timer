@@ -1,9 +1,9 @@
 [Unit]
-Description=Run vault-certificate on boot and every year
+Description=Run vault-certificate on boot and every week after
 
 [Timer]
 OnActiveSec=0
-OnUnitActiveSec=8760h
+OnUnitActiveSec=168h
 AccuracySec=1s
 
 
