@@ -5,6 +5,7 @@
 source /home/vaultuser/.vault/vars
 BASE_DIR=/home/vaultuser
 mkdir -p $BASE_DIR/certs
+TTL=168h
 
 INSTANCE_ID=`curl -s http://169.254.169.254/latest/meta-data/instance-id`
 
@@ -17,7 +18,7 @@ source /home/vaultuser/.vault/vars
 
 SANS=`aws --output text --region $AWS_REGION ec2 describe-tags --filters "Name=resource-id,Values=${INSTANCE_ID}" "Name=tag:SAN,Values=*" | awk {'print $5'}`
 
-curl -ks -H "X-Vault-Token:$VAULT_TOKEN" -X POST https://$VAULT_URL:8200/v1/pki/issue/vets-api-dot-gov -d '{"common_name":"'$HOSTNAME'","alt_names":"'$SANS'","ttl":"8760h"}' > ${BASE_DIR}/certs/certificate.json
+curl -ks -H "X-Vault-Token:$VAULT_TOKEN" -X POST https://$VAULT_URL:8200/v1/pki/issue/vets-api-dot-gov -d '{"common_name":"'$HOSTNAME'","alt_names":"'$SANS'","ttl":"'$TTL'"}' > ${BASE_DIR}/certs/certificate.json
 
 # Save PEM files
 jq -r '.data.certificate' ${BASE_DIR}/certs/certificate.json > ${BASE_DIR}/certs/certificate.pem

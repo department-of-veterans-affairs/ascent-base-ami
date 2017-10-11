@@ -1,6 +1,7 @@
 [Unit]
 Description=Checks AWS tags for PKI certificate settings and acquires from Vault
-Requires=network-online.target vault-aws-auth.target
+Requires=network-online.target
+Wants=vault-aws-auth.target
 After=network-online.target vault-aws-auth.target
 
 [Service]
@@ -10,6 +11,7 @@ ExecStart=/home/vaultuser/get_cert.sh
 ExecStartPost=/bin/cp /home/vaultuser/certs/vets-issuing_ca.pem /etc/pki/ca-trust/source/anchors ; /bin/update-ca-trust extract
 User=vaultuser
 Group=vaultuser
+TimeoutStartSec=30
 
 [Install]
 WantedBy=multi-user.target

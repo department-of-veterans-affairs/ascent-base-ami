@@ -2,7 +2,8 @@
 Description=Run vault-certificate on boot and every week after
 
 [Timer]
-OnActiveSec=0
+#OnActiveSec=0
+OnBootSec=30
 OnUnitActiveSec=168h
 AccuracySec=1s
 
