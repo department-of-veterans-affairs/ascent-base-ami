@@ -23,7 +23,7 @@ path "pki/issue/vets-api-dot-gov" {
   - "SAN" - comma delimited list of [subject alternative names](https://tools.ietf.org/html/rfc3280#section-4.2.1.7) to be added to the certificate.
     This tag is optional, if present its contents must be either a single DNS name or comma delimited list of several DNS names to be added to the certificate.
 
-- Certificates are requested with a 1 year expiration at system startup and a systemd timer is set to renew 1 year after
+- Certificates are requested with a 1 week expiration at system startup and a systemd timer is set to renew 1 week after
 
 - Returned certificates and private key are stored in /home/vaultuser/certs
 
