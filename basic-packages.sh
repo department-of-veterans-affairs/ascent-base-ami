@@ -1,7 +1,8 @@
 #!/bin/bash -ex
 
 # base yum packages
-sudo yum -y install wget unzip deltarpm nmap curl bind-utils
+sudo yum -y install wget unzip deltarpm nmap curl bind-utils ntp
+sudo systemctl enable ntpd
 
 # aws cli
 curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
