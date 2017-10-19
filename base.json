@@ -46,13 +46,19 @@
       "destination": "/tmp"
     },
     {
+      "type": "file",
+      "source": "./dns/",
+      "destination": "/tmp"
+    },
+    {
       "type": "shell",
       "scripts": [
         "basic-packages.sh",
         "setup_vault_auth.sh",
         "setup_vault_certificate.sh",
         "ssh-users.sh",
-        "devops.sh"
+        "devops.sh",
+        "setup_update_dns.sh"
       ]
     }
   ]

@@ -1,0 +1,12 @@
+[Unit]
+Description=Checks AWS tags for SAN info and updates DNS
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/root/add_server_to_dns.sh
+
+[Install]
+WantedBy=multi-user.target
+
