@@ -32,11 +32,11 @@ else
     echo "No SAN Tag found. script will exit and not add this server to DNS"
     exit
   else
-    echo "zone internal.vets-api." >/root/nsupdate.txt
+    echo "zone internal.vets-api.gov." >/root/nsupdate.txt
     echo "server "$MASTER_SERVER_IP >>/root/nsupdate.txt
     for SAN in $SANLIST
     do
-       echo "update add" $SAN".internal.vets-api. 0 CNAME "$PRIVATEDNSNAME >>/root/nsupdate.txt
+       echo "update add" $SAN". 0 CNAME "$PRIVATEDNSNAME >>/root/nsupdate.txt
     done
 
     echo "send" >>/root/nsupdate.txt
