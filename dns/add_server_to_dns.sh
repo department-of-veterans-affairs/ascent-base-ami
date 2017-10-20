@@ -20,7 +20,7 @@ else
   MASTER_INSTANCE_ID=`aws --output text --region $AWS_REGION ec2 describe-tags --filters 'Name=tag:Type,Values=dns_master' | awk '{print $3}'`
   MASTER_SERVER_IP=`aws ec2 describe-instances --instance-id $MASTER_INSTANCE_ID --region $AWS_REGION | jq .Reservations[].Instances[].PrivateIpAddress |sed 's/\"//g'`
   SLAVE_INSTANCE_ID=`aws --output text --region $AWS_REGION ec2 describe-tags --filters 'Name=tag:Type,Values=dns_slave' | awk '{print $3}'`
-
+  SLAVE_SERVER_IP=`aws ec2 describe-instances --instance-id $SLAVE_INSTANCE_ID --region $AWS_REGION | jq .Reservations[].Instances[].PrivateIpAddress |sed 's/\"//g'`
   echo $AWSSAN
   echo $PRIVATEDNSNAME
 
