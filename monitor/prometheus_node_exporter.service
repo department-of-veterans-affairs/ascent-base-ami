@@ -1,0 +1,10 @@
+[Unit]
+Description=startup promethues node scraper
+
+[Service]
+User=ec2-user
+ExecStart=/apps/prometheus/node_exporter/node_exporter
+
+[Install]
+WantedBy=default.target
+

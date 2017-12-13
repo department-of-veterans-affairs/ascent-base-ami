@@ -16,7 +16,6 @@
       "ssh_username": "ec2-user",
       "ssh_pty": true,
       "ami_name": "ascent-base-{{timestamp}}",
-      "subnet_id": "subnet-2e0b2f4b",
       "launch_block_device_mappings": [
         {
           "device_name": "/dev/sda1",
@@ -51,6 +50,11 @@
       "destination": "/tmp"
     },
     {
+      "type": "file",
+      "source": "./monitor/",
+      "destination": "/tmp"
+    },
+    {
       "type": "shell",
       "scripts": [
         "basic-packages.sh",
@@ -58,7 +62,8 @@
         "setup_vault_certificate.sh",
         "ssh-users.sh",
         "devops.sh",
-        "setup_update_dns.sh"
+        "setup_update_dns.sh",
+	"setup_monitor.sh"
       ]
     }
   ]
