@@ -1,5 +1,8 @@
 #!/bin/bash -ex
 
+# perform update
+sudo yum -y update
+
 # base yum packages
 sudo yum -y install wget unzip deltarpm nmap curl bind-utils ntp
 sudo systemctl enable ntpd
