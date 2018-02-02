@@ -3,7 +3,7 @@
     "aws_access_key": null,
     "aws_secret_key": null,
     "aws_region": null,
-    "base_ami_id": null
+    "ami_version": "{{timestamp}}"
   },
   "builders": [
     {
@@ -11,11 +11,11 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_region`}}",
-      "source_ami": "{{user `base_ami_id`}}",
+      "source_ami": "ami-1fbe067e",
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ssh_pty": true,
-      "ami_name": "ascent-base-{{timestamp}}",
+      "ami_name": "ascent-base-{{user `ami_version`}}",
       "launch_block_device_mappings": [
         {
           "device_name": "/dev/sda1",
@@ -25,7 +25,8 @@
         }
       ],
       "tags": {
-        "Name": "vets-ascent"
+        "Name": "vets-ascent",
+        "Version": "{{user `ami_version`}}"
       },
       "snapshot_tags": 
       {
@@ -36,21 +37,6 @@
   "provisioners": [
     {
       "type": "file",
-      "source": "./vault-aws-auth/",
-      "destination": "/tmp"
-    },
-    {
-      "type": "file",
-      "source": "./vault-certificate/",
-      "destination": "/tmp"
-    },
-    {
-      "type": "file",
-      "source": "./dns/",
-      "destination": "/tmp"
-    },
-    {
-      "type": "file",
       "source": "./monitor/",
       "destination": "/tmp"
     },
@@ -58,12 +44,7 @@
       "type": "shell",
       "scripts": [
         "basic-packages.sh",
-        "setup_vault_auth.sh",
-        "setup_vault_certificate.sh",
-        "ssh-users.sh",
-        "devops.sh",
-        "setup_update_dns.sh",
-	"setup_monitor.sh"
+	      "setup_monitor.sh"
       ]
     }
   ]
