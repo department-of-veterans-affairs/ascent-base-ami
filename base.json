@@ -36,6 +36,12 @@
   ],
   "provisioners": [
     {
+      "type": "shell",
+      "inline": [
+          "sudo yum -y update"
+      ]
+    },
+    {
       "type": "file",
       "source": "./monitor/",
       "destination": "/tmp"
