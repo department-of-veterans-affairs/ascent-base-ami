@@ -3,6 +3,8 @@
     "aws_access_key": null,
     "aws_secret_key": null,
     "aws_region": null,
+    "vpc_id": null,
+    "subnet_id": null,
     "ami_version": "{{timestamp}}"
   },
   "builders": [
@@ -11,10 +13,13 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_region`}}",
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
       "source_ami": "ami-1fbe067e",
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ssh_pty": true,
+      "associate_public_ip_address": true,
       "ami_name": "ascent-base-{{user `ami_version`}}",
       "launch_block_device_mappings": [
         {
