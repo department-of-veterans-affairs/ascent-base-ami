@@ -43,7 +43,20 @@
     {
       "type": "shell",
       "inline": [
-          "sudo yum -y update"
+          "sudo yum -y update",
+          "mkdir /tmp/certificates"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "./certificates/",
+      "destination": "/tmp/certificates"
+    },
+    {
+      "type": "shell",
+      "inline": [
+          "sudo mv /tmp/certificates/* /etc/pki/ca-trust/source/anchors",
+          "sudo update-ca-trust"
       ]
     },
     {
