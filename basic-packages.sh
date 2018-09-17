@@ -16,5 +16,6 @@ sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/bin/aws
 sudo wget -O /usr/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
 sudo chmod 755 /usr/bin/jq
 
+echo "# relayhost = smtp.va.gov" | sudo tee -a  /etc/postfix/main.cf
 
 exit 0
