@@ -15,7 +15,7 @@
       "region": "{{user `aws_region`}}",
       "vpc_id": "{{user `vpc_id`}}",
       "subnet_id": "{{user `subnet_id`}}",
-      "source_ami": "ami-1fbe067e",
+      "source_ami": "ami-d820aab9",
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ssh_pty": true,
