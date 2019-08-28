@@ -1,19 +1,17 @@
-# ascent-base-ami
+# This repository is no longer maintained.
 
-These scripts build a base image using Hashicorp packer.  Base RHEL7, the aws cli, and the jq shell JSON parser are installed.  
-SSH access is setup via integration with authorized keys loaded into Hashicorp Vault, for more details see the vault_aws_auth directory. 
+Issue reports and pull requests will not be attended. 
 
-A default user named "devops" is added with full sudo access.  
+To deploy spring boot and spring cloud microservices on BIP Platform, refer to the following repositories:
 
+**DSVA**
+1. BIP Framework: https://github.com/department-of-veterans-affairs/bip-framework
+2. BIP Reference Person Example Service: https://github.com/department-of-veterans-affairs/bip-reference-person
+3. BIP Archetype Service: https://github.com/department-of-veterans-affairs/bip-archetype-service
+4. BIP Jenkins Library: https://github.com/department-of-veterans-affairs/os-svc-jenkins-lib/
 
-## To run
-Create user variable JSON file:
-```
-   {
-    "aws_access_key": "xxxxxxxxxxxxxxxxxxxxxxxxx",
-    "aws_secret_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "aws_region": "us-east-1",
-    "base_ami_id": "ami-c998b6b2",
-   }
-```
-and run `packer build -var-file=<your_user_file>.json base.json`
+**EPMO**
+1. BIP Framework: https://github.ec.va.gov/EPMO/bip-framework
+2. BIP Reference Person Example Service: https://github.ec.va.gov/EPMO/bip-reference-person
+3. BIP Archetype Service: https://github.ec.va.gov/EPMO/bip-archetype-service
+4. BIP Jenkins Library: https://github.ec.va.gov/EPMO/bip-jenkins-lib
